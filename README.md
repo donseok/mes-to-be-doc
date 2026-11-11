@@ -14,6 +14,7 @@ SAP ERP를 S/4HANA로 전환하고 자체 MES를 재구축하면서, 주문생�
 | [상세 3. SAP 설정과 전환](docs/mto-mts-03-sap-config-conversion.md) | 필요한 설정, S/4HANA 전환 영향, 도입 순서 | SAP 담당, PMO |
 | [상세 4. MES 설계 요건](docs/mto-mts-04-mes-requirements.md) | MES 데이터 구조, 매칭 로직, SAP 인터페이스 | MES 설계자 |
 | [상세 5. 프로세스 시뮬레이션](docs/mto-mts-05-process-simulation.md) | 코일 10톤을 MTO와 MTS로 각각 따라가 보기 | 전원 |
+| [상세 6. 철강 업계 관행과 세분화 자재코드](docs/mto-mts-06-steel-practice.md) | 규격이 다른 재고의 충당 규칙, 재고 구분, 미리 만들 지점, 재고 지표 | 생산관리, 기준정보 |
 | [시뮬레이션 장표](docs/slides/README.md) | 상세 5를 장표 22장으로 만든 것. 이미지로 바로 보거나 [PDF](docs/slides/mto-mts-simulation.pdf)로 내려받는다 | 전원 |
 
 처음 읽는다면 본문의 0장(한 장 요약)과 시뮬레이션 장표부터 보기를 권한다.
