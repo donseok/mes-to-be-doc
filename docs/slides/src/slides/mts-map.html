@@ -1,0 +1,52 @@
+<section id="mts-map" data-transition="fade" style="background:#F6F4EF;color:#16212B;font-family:'Noto Sans KR', Arial, sans-serif;padding:96px 128px 160px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;color:#9A4706">MTS 시뮬레이션</p>
+<h2 style="font-size:52px;font-weight:700;line-height:1.15">MTS 전체 흐름</h2>
+<p style="font-size:30px;line-height:1.4;color:#46525E">주문 없이 만들어 일반재고로 두고, 나중에 들어온 주문 B로 내보낸다</p>
+</div>
+<div style="position:absolute;left:128px;top:350px;width:1664px;height:180px;background:#ECE8DF;border-radius:12px"></div>
+<div style="position:absolute;left:128px;top:540px;width:1664px;height:180px;background:#ECE8DF;border-radius:12px"></div>
+<div style="position:absolute;left:128px;top:730px;width:1664px;height:180px;background:#ECE8DF;border-radius:12px"></div>
+<p style="position:absolute;left:144px;top:423px;width:124px;font-size:24px;font-weight:700;line-height:1.4;color:#46525E">고객·영업</p>
+<p style="position:absolute;left:144px;top:613px;width:124px;font-size:24px;font-weight:700;line-height:1.4;color:#46525E">SAP</p>
+<p style="position:absolute;left:144px;top:803px;width:124px;font-size:24px;font-weight:700;line-height:1.4;color:#46525E">MES</p>
+<p style="position:absolute;left:276px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">① 계획</p>
+<p style="position:absolute;left:494px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">② MO 생성</p>
+<p style="position:absolute;left:712px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">③ 생산</p>
+<p style="position:absolute;left:930px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">④ 입고</p>
+<p style="position:absolute;left:1148px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">⑤ 수주</p>
+<p style="position:absolute;left:1356px;top:290px;width:208px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">⑥ 매칭·출하·청구</p>
+<p style="position:absolute;left:1584px;top:290px;width:188px;height:48px;font-size:24px;font-weight:700;line-height:48px;text-align:center;color:#16212B;background:#E9973A;border-radius:8px">⑦ 월말</p>
+<div style="position:absolute;left:1148px;top:380px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">주문 B 접수<br>고객 을 · 6톤</p></div>
+<div style="position:absolute;left:1366px;top:380px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">고객 을 인수</p></div>
+<div style="position:absolute;left:494px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FBE7D3;border:3px solid #9A4706;border-radius:12px;padding:0 8px"><p style="font-size:24px;font-weight:700;line-height:1.4;text-align:center">생산오더<br>MO-2<br>주문 지정 없음</p></div>
+<div style="position:absolute;left:712px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">원가 집계<br>10,400</p></div>
+<div style="position:absolute;left:930px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FBE7D3;border:3px solid #9A4706;border-radius:12px;padding:0 8px"><p style="font-size:24px;font-weight:700;line-height:1.4;text-align:center">입고<br>일반재고<br>10톤 · 10,000</p></div>
+<div style="position:absolute;left:1148px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">판매오더 B<br>MTS 품목<br>재고 확인</p></div>
+<div style="position:absolute;left:1366px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">납품 · 출고<br>청구 7,200</p></div>
+<div style="position:absolute;left:1584px;top:570px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">차이 400 정산<br>제품 P에 귀속</p></div>
+<div style="position:absolute;left:276px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">생산관리<br>10톤 보충 결정</p></div>
+<div style="position:absolute;left:494px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">MO-2 편성<br>주문 없음</p></div>
+<div style="position:absolute;left:712px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">투입 · 공정<br>실적 전송</p></div>
+<div style="position:absolute;left:930px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">입고 실적<br>코일 2개</p></div>
+<div style="position:absolute;left:1148px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">주문 B 수신</p></div>
+<div style="position:absolute;left:1366px;top:760px;width:188px;height:120px;display:flex;flex-direction:column;justify-content:center;background:#FCFBF8;border:2px solid #58616C;border-radius:12px;padding:0 8px"><p style="font-size:24px;line-height:1.4;text-align:center">C-201을<br>주문 B에 매칭<br>출하 실적 전송</p></div>
+<x-connector x1="682" y1="630" x2="712" y2="630" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="900" y1="630" x2="930" y2="630" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="1118" y1="630" x2="1148" y2="630" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="1336" y1="630" x2="1366" y2="630" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="1554" y1="630" x2="1584" y2="630" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="464" y1="820" x2="494" y2="820" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="682" y1="820" x2="712" y2="820" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="900" y1="820" x2="930" y2="820" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="1118" y1="820" x2="1148" y2="820" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="1336" y1="820" x2="1366" y2="820" style="color:#16212B;border-width:3px"></x-connector>
+<x-connector x1="588" y1="760" x2="588" y2="690" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="806" y1="760" x2="806" y2="690" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="1024" y1="760" x2="1024" y2="690" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="1242" y1="500" x2="1242" y2="570" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="1242" y1="690" x2="1242" y2="760" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="1460" y1="760" x2="1460" y2="690" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<x-connector x1="1460" y1="570" x2="1460" y2="500" style="color:#9A4706;border-width:3px;border-style:dashed"></x-connector>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#58616C">실선은 같은 시스템 안의 진행, 점선은 시스템 사이의 전송이다. 색칠한 상자가 재고의 주인이 정해지는 지점이다</p>
+</section>

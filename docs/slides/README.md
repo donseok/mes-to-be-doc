@@ -5,7 +5,12 @@
 - **내려받기**: [PDF (22쪽)](mto-mts-simulation.pdf)
 - **같은 내용의 문서**: [상세 5. 프로세스 시뮬레이션](../mto-mts-05-process-simulation.md)
 - 숫자는 [상세 2. 원가 숫자 예시](../mto-mts-02-costing-examples.md)와 같다. 금액 단위는 천원이다.
-- 이 페이지의 이미지와 PDF는 claude.ai에서 만든 장표 원본을 렌더링한 것이다. 장표를 고치면 이미지와 PDF도 다시 만들어야 한다.
+- 이 페이지의 이미지와 PDF는 장표 원본을 렌더링한 것이다. 원본은 [src](src) 폴더에 있다(`deck.json`이 순서, `slides/*.html`이 장마다 한 파일).
+- 장표를 고치면 이미지와 PDF도 다시 만든다. Node.js와 Playwright(Chromium)가 필요하고, 글꼴(Noto Sans KR)을 내려받으므로 인터넷이 되어야 한다. 저장소 루트에서 실행한다.
+
+```bash
+node docs/slides/tools/export.js docs/slides/src docs/slides/img docs/slides/mto-mts-simulation.pdf
+```
 
 | 구간 | 장 |
 |---|---|

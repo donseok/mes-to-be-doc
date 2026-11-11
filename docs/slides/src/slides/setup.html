@@ -1,0 +1,58 @@
+<section id="setup" data-transition="fade" style="background:#F6F4EF;color:#16212B;font-family:'Noto Sans KR', Arial, sans-serif;padding:96px 128px 88px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;color:#58616C">시뮬레이션의 전제</p>
+<h2 style="font-size:52px;font-weight:700;line-height:1.15">숫자와 등장하는 주문</h2>
+<p style="font-size:30px;line-height:1.4;color:#46525E">같은 숫자로 MTO와 MTS를 차례로 따라간다. 금액 단위는 천원이다</p>
+</div>
+<div style="display:flex;gap:32px;flex:1">
+<div style="width:760px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:32px">
+<div style="display:flex;flex-direction:column;gap:18px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">냉연코일 자재 P, 10톤의 원가</h3>
+<table style="font-size:24px;color:#16212B">
+<tr style="background:#ECE8DF"><th style="width:34%;text-align:left">구분</th><th style="width:22%;text-align:right">열연코일</th><th style="width:22%;text-align:right">가공비</th><th style="width:22%;text-align:right">합계</th></tr>
+<tr><td>표준 원가</td><td>8,000</td><td>2,000</td><td>10,000</td></tr>
+<tr><td>실제 원가</td><td>8,300</td><td>2,100</td><td>10,400</td></tr>
+<tr><td>생산 차이</td><td>300</td><td>100</td><td>400</td></tr>
+</table>
+<p style="font-size:24px;line-height:1.4;color:#46525E">표준단가는 톤당 1,000, 판매단가는 톤당 1,200이다</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">가정: MO(MES의 생산 LOT) 1건 = SAP 생산오더 1건.<br>주문재고는 자재 표준단가로 평가한다 (권고안).<br>한 달 안에 생산과 출하가 끝나고, 실제원가 계산은 쓰지 않는다</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">금액이 옮겨 다니는 곳</p>
+<div style="display:flex;gap:10px;align-items:center">
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;background:#ECE8DF;border-radius:8px;padding:12px 0">원재료<br>재고</p>
+<x-shape kind="arrow-right" style="width:28px;height:14px;background:#58616C"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;background:#ECE8DF;border-radius:8px;padding:12px 0">생산<br>오더</p>
+<x-shape kind="arrow-right" style="width:28px;height:14px;background:#58616C"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;background:#ECE8DF;border-radius:8px;padding:12px 0">제품<br>재고</p>
+<x-shape kind="arrow-right" style="width:28px;height:14px;background:#58616C"></x-shape>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;background:#ECE8DF;border-radius:8px;padding:12px 0">매출<br>원가</p>
+</div>
+<p style="font-size:24px;line-height:1.4;color:#46525E">생산오더에 남는 금액이 생산 차이다</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="flex:1;display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;background:#E1EBF7;border:2px solid #1D4E89;border-radius:16px;padding:28px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2;color:#1D4E89">주문재고</h3>
+<p style="font-size:24px;line-height:1.4">특정 주문에 귀속된 재고.<br>그 주문만 쓸 수 있다</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;background:#FBE7D3;border:2px solid #9A4706;border-radius:16px;padding:28px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2;color:#9A4706">일반재고</h3>
+<p style="font-size:24px;line-height:1.4">어느 주문에도 묶이지 않은 재고.<br>모든 주문이 쓸 수 있다</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:28px 32px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">등장하는 주문과 MO</h3>
+<table style="font-size:24px;color:#16212B">
+<tr><td style="width:22%">주문 A</td><td style="width:44%">고객 갑 · 10톤</td><td style="width:34%">MTO 품목</td></tr>
+<tr><td>MO-1</td><td>주문 A에 연결</td><td>코일 8톤 + 2톤</td></tr>
+<tr><td>MO-2</td><td>주문 없음</td><td>코일 6톤 + 4톤</td></tr>
+<tr><td>주문 B</td><td>고객 을 · 6톤</td><td>MTS 품목</td></tr>
+<tr><td>주문 C</td><td>고객 병 · 10톤</td><td>MTO · 뒤에 등장</td></tr>
+</table>
+<p style="font-size:24px;line-height:1.4;color:#46525E">품목은 판매오더의 한 줄이다. 줄마다 MTO인지 MTS인지 정한다</p>
+</div>
+</div>
+</div>
+</section>

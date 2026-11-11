@@ -1,0 +1,77 @@
+<section id="mto-4" data-transition="fade" style="background:#F6F4EF;color:#16212B;font-family:'Noto Sans KR', Arial, sans-serif;padding:96px 128px 88px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;color:#1D4E89">MTO 시뮬레이션</p>
+<p style="font-size:24px;color:#58616C">4 / 6</p>
+</div>
+<h2 style="font-size:52px;font-weight:700;line-height:1.15">④ 입고</h2>
+<p style="font-size:30px;line-height:1.4;color:#46525E">완제품이 주문 A 전용 재고가 된다</p>
+</div>
+<div style="display:flex;gap:8px">
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#E1EBF7;color:#16212B;border:1px solid transparent">① 수주</p>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#E1EBF7;color:#16212B;border:1px solid transparent">② MO 생성</p>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#E1EBF7;color:#16212B;border:1px solid transparent">③ 생산</p>
+<p style="flex:1;font-size:24px;font-weight:700;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#1D4E89;color:#FCFBF8;border:1px solid transparent">④ 입고</p>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#FCFBF8;color:#58616C;border:1px solid #D5D0C5">⑤ 출하·청구</p>
+<p style="flex:1;font-size:24px;line-height:1.4;text-align:center;padding:14px 0;border-radius:8px;background:#FCFBF8;color:#58616C;border:1px solid #D5D0C5">⑥ 월말</p>
+</div>
+<div style="display:flex;gap:32px;flex:1">
+<div style="width:520px;display:flex;flex-direction:column;gap:22px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">이 단계에서 하는 일</h3>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4;color:#1D4E89">MES</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">완제품 입고 실적을 보낸다.<br>코일 C-101(8톤), C-102(2톤)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4;color:#1D4E89">SAP</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">표준단가로 입고한다. 재고 종류는<br>자동으로 주문 A의 주문재고다</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4;color:#1D4E89">결과</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">MO-1에서 10,000이 빠지고<br>400이 남는다</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">금액의 위치</p>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:12px;padding:18px 16px">
+<p style="font-size:24px;line-height:1.4;color:#58616C">원재료 재고</p>
+<p style="font-size:40px;line-height:1.15;color:#58616C">0</p>
+<p style="font-size:24px;line-height:1.4;color:#58616C">투입 완료</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#E1EBF7;border:2px solid #1D4E89;border-radius:12px;padding:17px 15px">
+<p style="font-size:24px;line-height:1.4;color:#46525E">생산오더</p>
+<p style="font-size:40px;font-weight:700;line-height:1.15">400</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">MO-1에 남음</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#E1EBF7;border:2px solid #1D4E89;border-radius:12px;padding:17px 15px">
+<p style="font-size:24px;line-height:1.4;color:#46525E">제품 재고</p>
+<p style="font-size:40px;font-weight:700;line-height:1.15">10,000</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">주문 A 전용</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:12px;padding:18px 16px">
+<p style="font-size:24px;line-height:1.4;color:#58616C">매출원가</p>
+<p style="font-size:40px;line-height:1.15;color:#58616C">0</p>
+<p style="font-size:24px;line-height:1.4;color:#58616C">없음</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:12px;padding:18px 16px">
+<p style="font-size:24px;line-height:1.4;color:#58616C">생산 차이</p>
+<p style="font-size:40px;line-height:1.15;color:#58616C">0</p>
+<p style="font-size:24px;line-height:1.4;color:#58616C">없음</p>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:26px 32px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">SAP에 남는 기록</h3>
+<p style="font-size:24px;line-height:1.4;color:#46525E"><b>문서</b> 자재문서(입고). 재고 종류는 주문 A의 주문재고</p>
+<table style="font-size:24px;color:#16212B">
+<tr style="background:#ECE8DF"><th style="width:38%;text-align:left">차변</th><th style="width:38%;text-align:left">대변</th><th style="width:24%;text-align:right">금액</th></tr>
+<tr><td>제품 재고 (주문 A)</td><td>생산 산출 ← MO-1</td><td>10,000</td></tr>
+</table>
+<p style="font-size:24px;line-height:1.4;color:#46525E">생산 산출은 공장이 만든 가치를 손익에 적는 상대 계정이다. ← MO-1은 MO-1에서 빠진다는 뜻이다</p>
+<p style="font-size:24px;line-height:1.4;background:#E1EBF7;border-radius:8px;padding:12px 16px"><b>눈여겨볼 점</b> 이 재고는 주문 A로만 출하할 수 있다. 다른 주문에는 보이지 않는다</p>
+</div>
+</div>
+</div>
+</section>

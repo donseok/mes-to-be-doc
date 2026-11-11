@@ -1,0 +1,45 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-11T08:48:51Z"},
+  "lists": "css",
+  "title": "MTO·MTS 프로세스 시뮬레이션",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "setup",
+    "mto-map",
+    "mto-1",
+    "mto-2",
+    "mto-3",
+    "mto-4",
+    "mto-5",
+    "mto-6",
+    "mts-map",
+    "mts-1",
+    "mts-2",
+    "mts-3",
+    "mts-4",
+    "mts-5",
+    "mts-6",
+    "mts-7",
+    "pivot",
+    "cross-1",
+    "cross-2",
+    "compare",
+    "checks"
+  ],
+  "sections": {
+    "s1": {"description": "시뮬레이션에 쓰는 숫자와 등장하는 주문을 소개한다.", "start": "cover"},
+    "s2": {"description": "MTO: 주문 A가 수주에서 월말 정산까지 가는 여섯 단계를 따라간다.", "start": "mto-map"},
+    "s3": {"description": "MTS: 주문 없이 만든 재고가 주문 B로 출하되는 일곱 단계를 따라간다.", "start": "mts-map"},
+    "s4": {"description": "두 흐름이 만나는 재고 충당과 여재 전환을 본다.", "start": "pivot"},
+    "s5": {"description": "단계별 차이를 비교하고 설계 전에 확인할 것을 정리한다.", "start": "compare"}
+  },
+  "faces": {
+    "noto-sans-kr": {
+      "family": "Noto Sans KR",
+      "href": "https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

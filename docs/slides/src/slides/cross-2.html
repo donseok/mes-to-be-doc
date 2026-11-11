@@ -1,0 +1,76 @@
+<section id="cross-2" data-transition="fade" style="background:#F6F4EF;color:#16212B;font-family:'Noto Sans KR', Arial, sans-serif;padding:96px 128px 88px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;color:#58616C">두 흐름이 만나는 지점</p>
+<p style="font-size:24px;color:#58616C">2 / 2</p>
+</div>
+<h2 style="font-size:52px;font-weight:700;line-height:1.15">주문 잔량 2톤을 여재로 전환</h2>
+<p style="font-size:30px;line-height:1.4;color:#46525E">여재는 주문에 납품되지 않고 남은 재고다. 주문을 마감하고 일반재고로 돌리면 다시 팔 수 있다</p>
+</div>
+<div style="display:flex;gap:32px;flex:1">
+<div style="width:520px;display:flex;flex-direction:column;gap:22px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:32px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">상황과 하는 일</h3>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">상황</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">앞의 MTO ⑤와 달리 고객 갑이 주문 A<br>10톤 가운데 8톤만 인수한다고 하자.<br>코일 C-102(2톤)가 여재로 남는다</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">영업</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">주문 A의 잔량을 마감한다. 빠뜨리면<br>SAP가 다시 생산을 제안할 수 있다</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">MES → SAP</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">여재로 판정하면 재고전환 전기를<br>자동으로 보낸다</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">그다음</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">일반재고가 된 2톤은 어느 주문에든<br>MTS 품목으로 다시 팔 수 있다.<br>지금은 주문 A 재고로 묶여 있다</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;gap:16px;align-items:center">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:24px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">전환 전</p>
+<div style="display:flex;gap:12px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#E1EBF7;border:2px solid #1D4E89;border-radius:12px;padding:16px">
+<p style="font-size:24px;line-height:1.4;color:#46525E">주문 A 재고</p>
+<p style="font-size:40px;font-weight:700;line-height:1.15">2톤</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">2,000</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FCFBF8;border:2px solid #9A4706;border-radius:12px;padding:16px">
+<p style="font-size:24px;line-height:1.4;color:#58616C">일반재고</p>
+<p style="font-size:40px;line-height:1.15;color:#58616C">0</p>
+<p style="font-size:24px;line-height:1.4;color:#58616C">없음</p>
+</div>
+</div>
+</div>
+<x-shape kind="arrow-right" style="width:48px;height:24px;background:#58616C"></x-shape>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:24px">
+<p style="font-size:24px;font-weight:700;line-height:1.4">전환 후</p>
+<div style="display:flex;gap:12px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FCFBF8;border:2px solid #1D4E89;border-radius:12px;padding:16px">
+<p style="font-size:24px;line-height:1.4;color:#58616C">주문 A 재고</p>
+<p style="font-size:40px;line-height:1.15;color:#58616C">0</p>
+<p style="font-size:24px;line-height:1.4;color:#58616C">없음</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FBE7D3;border:2px solid #9A4706;border-radius:12px;padding:16px">
+<p style="font-size:24px;line-height:1.4;color:#46525E">일반재고</p>
+<p style="font-size:40px;font-weight:700;line-height:1.15">2톤</p>
+<p style="font-size:24px;line-height:1.4;color:#46525E">2,000</p>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:14px;background:#FCFBF8;border:1px solid #D5D0C5;border-radius:16px;padding:26px 32px">
+<h3 style="font-size:30px;font-weight:700;line-height:1.2">SAP에 남는 기록 (단가 통일 기준)</h3>
+<p style="font-size:24px;line-height:1.4;color:#46525E"><b>문서</b> 판매오더 A 변경(잔량 마감), 자재문서(재고전환)</p>
+<table style="font-size:24px;color:#16212B">
+<tr style="background:#ECE8DF"><th style="width:38%;text-align:left">차변</th><th style="width:38%;text-align:left">대변</th><th style="width:24%;text-align:right">금액</th></tr>
+<tr><td>제품 재고 (일반)</td><td>제품 재고 (주문 A)</td><td>2,000</td></tr>
+</table>
+<p style="font-size:24px;line-height:1.4;color:#46525E">주문별 단가(1,030)라면 2,060이 나가 2,000으로 들어와 손실 60이 잡힌다</p>
+<p style="font-size:24px;line-height:1.4;background:#ECE8DF;border-radius:8px;padding:12px 16px"><b>눈여겨볼 점</b> 차이 400은 전부 주문 A에 남는다(원가 8,400, 이익 1,200). 여재 몫 80까지 주문 A가 부담할지 정해야 한다</p>
+</div>
+</div>
+</div>
+</section>

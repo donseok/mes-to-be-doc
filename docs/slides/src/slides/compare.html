@@ -1,0 +1,24 @@
+<section id="compare" data-transition="fade" style="background:#F6F4EF;color:#16212B;font-family:'Noto Sans KR', Arial, sans-serif;padding:96px 128px 88px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:700;letter-spacing:2px;color:#58616C">정리</p>
+<h2 style="font-size:52px;font-weight:700;line-height:1.15">MTO와 MTS, 단계별 차이</h2>
+<p style="font-size:30px;line-height:1.4;color:#46525E">원가가 쌓이는 방식은 같다. 주문이 언제 등장하고 재고가 누구의 것인지가 다르다</p>
+</div>
+<table style="font-size:24px;color:#16212B;background:#FCFBF8">
+<tr style="background:#ECE8DF"><th style="width:26%;text-align:left">관점</th><th style="width:37%;text-align:left;color:#1D4E89">MTO · 주문을 받고 만든다</th><th style="width:37%;text-align:left;color:#9A4706">MTS · 만들어 두고 판다</th></tr>
+<tr><td>생산의 출발점</td><td>고객 주문</td><td>판매계획, 재고 보충 결정</td></tr>
+<tr><td>주문이 들어오는 때</td><td>생산 전</td><td>생산 후 또는 생산 중</td></tr>
+<tr><td>SAP 생산오더</td><td>주문 지정</td><td>주문 지정 없음</td></tr>
+<tr><td>생산 중의 분개</td><td>같다</td><td>같다</td></tr>
+<tr><td>입고되는 재고</td><td>주문재고 (그 주문 전용)</td><td>일반재고 (누구나 사용)</td></tr>
+<tr><td>납기 약속의 근거</td><td>생산 일정</td><td>재고와 입고 예정</td></tr>
+<tr><td>출하할 코일</td><td>그 주문 재고 안에서 지정</td><td>일반재고에서 매칭해 지정</td></tr>
+<tr><td>생산 차이가 붙는 곳</td><td>주문과 고객 (프로토타입에서 확인)</td><td>제품</td></tr>
+<tr><td>주문의 원가</td><td>표준 + 그 MO의 차이</td><td>표준</td></tr>
+<tr><td>더미 주문</td><td>필요 없음</td><td>필요 없음</td></tr>
+</table>
+<div style="display:flex;gap:16px">
+<p style="flex:1;font-size:24px;line-height:1.4;background:#ECE8DF;border-radius:8px;padding:12px 16px"><b>같은 것</b> 원가가 쌓이는 방식, 입고·출하·청구의 분개</p>
+<p style="flex:1;font-size:24px;line-height:1.4;background:#ECE8DF;border-radius:8px;padding:12px 16px"><b>다른 것</b> 주문이 등장하는 때, 재고의 주인, 차이의 귀속</p>
+</div>
+</section>
