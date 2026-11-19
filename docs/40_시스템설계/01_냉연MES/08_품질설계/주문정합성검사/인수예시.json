@@ -1,0 +1,44 @@
+{
+  "design_id": "EX-DSN-MES-QUAL-001",
+  "revision": "0.1",
+  "status": "draft",
+  "purpose": "illustration",
+  "cases": [
+    {
+      "id": "EX-AC-01",
+      "rule_id": "EX-RULE-03",
+      "input": { "minThicknessUm": 800, "maxThicknessUm": 1200 },
+      "expected": { "result": "PASS", "code": "RANGE_OK" }
+    },
+    {
+      "id": "EX-AC-02",
+      "rule_id": "EX-RULE-03",
+      "input": { "minThicknessUm": 10000, "maxThicknessUm": 10000 },
+      "expected": { "result": "PASS", "code": "RANGE_OK" }
+    },
+    {
+      "id": "EX-AC-03",
+      "rule_id": "EX-RULE-02",
+      "input": { "minThicknessUm": 1200, "maxThicknessUm": 800 },
+      "expected": { "result": "FAIL", "code": "RANGE_REVERSED" }
+    },
+    {
+      "id": "EX-AC-04",
+      "rule_id": "EX-RULE-01",
+      "input": { "minThicknessUm": 800 },
+      "expected": { "result": "INVALID_INPUT", "code": "FIELD_INVALID" }
+    },
+    {
+      "id": "EX-AC-05",
+      "rule_id": "EX-RULE-01",
+      "input": { "minThicknessUm": "800", "maxThicknessUm": 1200 },
+      "expected": { "result": "INVALID_INPUT", "code": "FIELD_INVALID" }
+    },
+    {
+      "id": "EX-AC-06",
+      "rule_id": "EX-RULE-01",
+      "input": { "minThicknessUm": 10001, "maxThicknessUm": 800 },
+      "expected": { "result": "INVALID_INPUT", "code": "FIELD_INVALID" }
+    }
+  ]
+}

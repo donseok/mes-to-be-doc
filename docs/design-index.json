@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "path_base": ".",
+  "project_guide": "folder-structure-proposal.md",
+  "systems": [
+    {
+      "name": "냉연 MES",
+      "index": "40_시스템설계/01_냉연MES/README.md"
+    },
+    {
+      "name": "표준관리시스템",
+      "index": "40_시스템설계/02_표준관리시스템/README.md"
+    },
+    {
+      "name": "위성시스템 · 파트너 포털",
+      "index": "40_시스템설계/03_위성시스템/01_파트너포털/README.md"
+    },
+    {
+      "name": "위성시스템 · 생산계획 최적화엔진",
+      "index": "40_시스템설계/03_위성시스템/02_생산계획최적화엔진/README.md"
+    }
+  ],
+  "feature_designs": {
+    "root": "40_시스템설계",
+    "filename": "설계서.md",
+    "metadata_format": "YAML front matter",
+    "status_field": "status",
+    "implementation_baseline_status": "approved",
+    "example_id_prefix": "EX-"
+  },
+  "authoring": {
+    "guide": "90_작성표준/README.md",
+    "template": "90_작성표준/통합설계서_양식.md"
+  },
+  "references": {
+    "architecture": "30_공통아키텍처/README.md",
+    "data_models": "50_데이터와연계/01_데이터모델/README.md",
+    "data_ownership": "50_데이터와연계/02_표준코드와소유권/소유권대장.csv",
+    "interface_catalog": "50_데이터와연계/03_인터페이스/인터페이스대장.csv",
+    "verification": "60_검증/README.md"
+  },
+  "worked_example": {
+    "design": "40_시스템설계/01_냉연MES/08_품질설계/주문정합성검사/설계서.md",
+    "acceptance_cases": "40_시스템설계/01_냉연MES/08_품질설계/주문정합성검사/인수예시.json"
+  }
+}
