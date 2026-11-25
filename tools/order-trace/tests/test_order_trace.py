@@ -72,6 +72,9 @@ class OrderTraceTest(unittest.TestCase):
         self.cfg_path = self.tmp / "cfg.json"
         self.cfg_path.write_text(json.dumps(self.cfg, ensure_ascii=False), encoding="utf-8")
 
+    def tearDown(self):
+        self.db.close()
+
     def extract(self):
         ext = self.tmp / "extracts"
         ext.mkdir(exist_ok=True)
@@ -146,6 +149,116 @@ class OrderTraceTest(unittest.TestCase):
         bad["variants"] = {"x": "SELECT 1 FROM DUAL; DROP TABLE TODO_COIL"}
         with self.assertRaises(ot.ConfigError):
             ot.validate_config(bad)
+
+    def build(self, ext=None, cfg=None):
+        if cfg is not None:
+            self.cfg_path.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
+        out = self.tmp / "out"
+        rc = ot.main(["build", "--config", str(self.cfg_path), "--extracts", str(ext or self.extract()),
+                      "--out", str(out)])
+        self.assertEqual(rc, 0)
+        return out
+
+    def test_multi_parent_shipment_keeps_all_lots(self):
+        out = self.build()
+        leaves = {r["leaf_key"] for r in self.read(out / "paths.csv")}
+        self.assertNotIn("LOT-T1|C1B", leaves)  # 출하된 LOT는 말단이 아니다
+        mmd = (out / "lineage.mmd").read_text(encoding="utf-8")
+        self.assertIn("ship_lot_item_LOT_T1_C1B --> shipment_SH_T1", mmd)
+        self.assertIn("ship_lot_item_LOT_T1_C1A1 --> shipment_SH_T1", mmd)
+
+    def test_lineage_cycle_and_self_reference(self):
+        self.db.execute("UPDATE TODO_COIL SET MOTHER_COIL_NO='C1A1' WHERE COIL_NO='C1'")
+        out = self.build()
+        checks = [c for c in self.read(out / "checks.csv") if c["check"] == "계보 순환"]
+        self.assertTrue(checks)
+        paths = {r["leaf_key"]: r["path"] for r in self.read(out / "paths.csv")}
+        self.assertTrue(paths["SH-T1"].startswith("주문:ORD-TEST-001"))
+        self.assertLess(paths["SH-T1"].count("코일:C1 "), 2)
+        self.db.execute("UPDATE TODO_COIL SET MOTHER_COIL_NO='C1' WHERE COIL_NO='C1'")
+        out = self.build()
+        self.assertTrue(any(c["check"] == "계보 순환" and c["key"] == "C1" for c in self.read(out / "checks.csv")))
+
+    def test_lineage_with_composite_key(self):
+        cfg = ansi_config()
+        cfg["nodes"]["coil"]["key"] = ["COIL_NO", "WT"]
+        for n in ("progress", "judgement", "ship_lot_item", "erp_send"):
+            cfg["nodes"][n]["join"] = {"COIL_NO": "COIL_NO"}
+        self.cfg = cfg
+        out = self.build(cfg=cfg)
+        links = self.read(out / "links.csv")
+        c1a = [r for r in links if r["node"] == "coil" and r["key"] == "C1A|10.0"][0]
+        self.assertEqual((c1a["parent_node"], c1a["parent_key"]), ("coil", "C1|20.0"))
+        self.assertFalse([c for c in self.read(out / "checks.csv") if c["node"] == "coil"])
+
+    def test_duplicate_rows_are_reported_once(self):
+        ext = self.extract()
+        with (ext / "coil.csv").open(encoding="utf-8") as f:
+            lines = f.read().splitlines()
+        (ext / "coil.csv").write_text("\n".join(lines + lines[1:]) + "\n", encoding="utf-8")
+        out = self.build(ext=ext)
+        self.assertEqual(len([r for r in self.read(out / "links.csv") if r["node"] == "coil"]), 4)
+        self.assertTrue(any(c["check"] == "중복 키" for c in self.read(out / "checks.csv")))
+
+    def test_oracle_lineage_is_wrapped_in_in(self):
+        cfg = ot.load_config(TOOL / "trace_path.example.yaml")
+        sql = ot.node_set_sql(cfg, "coil")
+        self.assertTrue(sql.startswith("SELECT n0.* FROM TODO_COIL n0 WHERE n0.COIL_NO IN (SELECT x0.COIL_NO"))
+
+    def test_custom_sql_with_trailing_comment_and_semicolon(self):
+        cfg = ansi_config()
+        cfg["nodes"]["order_item"] = {
+            "label": "주문품목", "parent": "order", "key": ["ORD_NO", "ORD_SEQ"], "join": {"ORD_NO": "ORD_NO"},
+            "custom_sql": "SELECT * FROM TODO_ORDER_ITEM WHERE ORD_NO = :order_no; -- 주문품목", "diagram": True}
+        ot.validate_config(cfg)
+        sql = ot.node_set_sql(cfg, "mo")
+        rows = self.db.execute(sql, {"order_no": "ORD-TEST-001"}).fetchall()
+        self.assertEqual([r[0] for r in rows], ["MO-T1"])
+
+    def test_columns_keep_linking_and_event_columns(self):
+        cfg = ot.load_config(TOOL / "trace_path.example.yaml")
+        cfg["nodes"]["work_order"]["columns"] = ["WO_NO"]
+        sql = ot.node_set_sql(cfg, "work_order")
+        for c in ("MO_NO", "ISSUE_DT", "PROC_CD", "WO_STAT_CD"):
+            self.assertIn(f"n0.{c}", sql)
+
+    def test_mask_on_linking_column_is_rejected(self):
+        cfg = ansi_config()
+        cfg["mask"]["order"]["ORD_NO"] = "hash"
+        with self.assertRaises(ot.ConfigError):
+            ot.validate_config(cfg)
+
+    def test_label_cannot_inject_sql(self):
+        cfg = ansi_config()
+        cfg["nodes"]["mo"]["label"] = "MO)\nDELETE FROM TODO_COIL;\n--"
+        with self.assertRaises(ot.ConfigError):
+            ot.validate_config(cfg)
+
+    def test_select_only_bypasses_are_rejected(self):
+        bad = [
+            "SELECT '--' AS x FROM DUAL; DELETE FROM TODO_COIL",
+            "SELECT '/*' x FROM DUAL; DROP TABLE T; SELECT '*/' FROM DUAL",
+            "SELECT 1 FROM DUAL\n/\nSELECT 2 FROM DUAL",
+            "SELECT 1 FROM DUAL\n\nHOST rm -rf ~",
+            "RENAME TODO_COIL TO X",
+            "SELECT * FROM TODO_COIL@PROD_LINK",
+            "SELECT * FROM TODO_COIL FOR UPDATE",
+            "SELECT 'x' FROM DUAL WHERE 1=1 /* 닫히지 않음",
+        ]
+        for sql in bad:
+            with self.assertRaises(ot.ConfigError, msg=sql):
+                ot.clean_select(sql, "test")
+        ok = ot.clean_select("SELECT 'a;b' AS x, q'[it's]' AS y FROM DUAL -- 끝\n", "test")
+        self.assertEqual(ok, "SELECT 'a;b' AS x, q'[it's]' AS y FROM DUAL")
+        with self.assertRaises(ot.ConfigError):
+            ot.clean_select("ORD_NO = :order_no;", "f", fragment=True)
+
+    def test_sql_command_writes_files(self):
+        out = self.tmp / "sql"
+        rc = ot.main(["sql", "--config", str(TOOL / "trace_path.example.yaml"), "--out", str(out)])
+        self.assertEqual(rc, 0)
+        self.assertTrue((out / "05_coil.sql").exists())
+        self.assertTrue((out / "variants" / "split.sql").exists())
 
     def test_missing_parent_is_reported(self):
         ext = self.extract()
