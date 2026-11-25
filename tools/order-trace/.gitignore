@@ -1,0 +1,8 @@
+# 실제 테이블명·추출 데이터·산출물은 저장소에 올리지 않는다
+trace_path.yaml
+trace_path.json
+sql/
+extracts/
+out/
+__pycache__/
+*.db
